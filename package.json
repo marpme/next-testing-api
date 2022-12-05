@@ -1,5 +1,5 @@
 {
-  "name": "next-test-suite",
+  "name": "@next-testing/api",
   "version": "0.0.2",
   "repository": "https://github.com/marpme/next-test-suite",
   "homepage": "https://github.com/marpme/next-test-suite",
