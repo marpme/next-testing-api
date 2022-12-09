@@ -1,52 +1,67 @@
 {
-  "name": "@next-testing/api",
-  "version": "0.0.3",
-  "repository": "https://github.com/marpme/next-test-suite",
-  "homepage": "https://github.com/marpme/next-test-suite",
-  "bugs": {
-    "url": "https://github.com/marpme/next-test-suite/issues"
-  },
-  "description": "Next API Test Suite - Simplifying the mocking and asserting of Next API Request & Responses",
-  "keywords": [
-    "nodejs",
-    "http",
-    "typescript",
-    "nextjs",
-    "nextapiresponse",
-    "nextapirequest",
-    "nextapi",
-    "testing",
-    "mock",
-    "mocking"
-  ],
-  "author": "marpme<7430964+marpme@users.noreply.github.com>",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "engines": {
-    "node": ">=14.6.0"
-  },
-  "scripts": {
-    "prepublish": "npm run build",
-    "build": "tsc --project tsconfig.json",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "format:check": "prettier --check src/ tests/ package.json tsconfig.json vitest.config.ts",
-    "format:write": "prettier --write src/ tests/ package.json tsconfig.json vitest.config.ts"
-  },
-  "dependencies": {
-    "@next/env": "^13.0.6"
-  },
-  "devDependencies": {
-    "@types/node": "^18.11.10",
-    "@vitest/coverage-c8": "^0.25.6",
-    "next": "^13.0.6",
-    "prettier": "^2.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.9.3",
-    "vitest": "^0.25.6"
-  },
-  "peerDependencies": {
-    "next": "^13.0.6"
-  }
+    "name": "@next-testing/api",
+    "version": "0.0.3",
+    "repository": "https://github.com/marpme/next-test-suite",
+    "homepage": "https://github.com/marpme/next-test-suite",
+    "bugs": {
+        "url": "https://github.com/marpme/next-test-suite/issues"
+    },
+    "description": "Next API Test Suite - Simplifying the mocking and asserting of Next API Request & Responses",
+    "keywords": [
+        "nodejs",
+        "http",
+        "typescript",
+        "nextjs",
+        "nextapiresponse",
+        "nextapirequest",
+        "nextapi",
+        "testing",
+        "mock",
+        "mocking"
+    ],
+    "author": "marpme<7430964+marpme@users.noreply.github.com>",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "engines": {
+        "node": ">=14.6.0"
+    },
+    "scripts": {
+        "prepublish": "npm run build",
+        "build": "tsc --project tsconfig.json",
+        "test": "vitest",
+        "coverage": "vitest run --coverage",
+        "format:check": "prettier --check src/ tests/ package.json tsconfig.json vitest.config.ts",
+        "format:write": "prettier --write src/ tests/ package.json tsconfig.json vitest.config.ts",
+        "lint": "eslint src/ tests/"
+    },
+    "dependencies": {
+        "@next/env": "^13.0.6"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.10",
+        "@typescript-eslint/eslint-plugin": "^5.46.0",
+        "@typescript-eslint/parser": "5.45.0",
+        "@vitest/coverage-c8": "^0.25.6",
+        "eslint": "^8.29.0",
+        "eslint-import-resolver-typescript": "3.5.2",
+        "eslint-plugin-import": "2.26.0",
+        "eslint-plugin-jsx-a11y": "6.6.1",
+        "eslint-plugin-react": "7.31.11",
+        "eslint-plugin-react-hooks": "4.6.0",
+        "next": "^13.0.6",
+        "prettier": "^2.8.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^4.9.3",
+        "vitest": "^0.25.6"
+    },
+    "peerDependencies": {
+        "next": "^13.0.6"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    }
 }
