@@ -1,4 +1,4 @@
-name: run tests and coverage
+name: verify format
 
 on:
   push:
