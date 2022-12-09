@@ -29,7 +29,9 @@
     "prepublish": "npm run build",
     "build": "tsc --project tsconfig.json",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "format:check": "prettier --check src/ tests/ package.json tsconfig.json vitest.config.ts",
+    "format:write": "prettier --write src/ tests/ package.json tsconfig.json vitest.config.ts"
   },
   "dependencies": {
     "@next/env": "^13.0.6"
@@ -38,7 +40,7 @@
     "@types/node": "^18.11.10",
     "@vitest/coverage-c8": "^0.25.6",
     "next": "^13.0.6",
-    "prettier": "^2.8.0",
+    "prettier": "^2.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.9.3",
