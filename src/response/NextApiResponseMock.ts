@@ -67,20 +67,16 @@ export const ResponseMock = <T = any>(): NextApiResponseMock<T> => {
     apiRes.redirect = (statusOrUrl: number | string, url?: string) =>
         redirect(apiRes, statusOrUrl, url)
 
-    apiRes.setPreviewData = (data, options = {}) => {
+    apiRes.setPreviewData = () => {
         return apiRes
     }
-    apiRes.clearPreviewData = (options = {}) => {
+    apiRes.clearPreviewData = () => {
         return apiRes
     }
-    apiRes.revalidate = async (
-        urlPath: string,
-        opts?: {
-            unstable_onlyGenerated?: boolean
-        }
-    ) => {}
+    apiRes.revalidate = async () => {
+        // empty on purpose
+    }
 
-    /** Mocking Part **/
     apiRes = mockBodyResponseHandling(apiRes)
 
     apiRes.getStatusCode = (): number => {
