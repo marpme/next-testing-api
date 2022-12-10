@@ -4,17 +4,18 @@ import {
     NextApiResponseMock,
     ResponseMock,
 } from '../src'
-import getNameEndpoint from './fixture/getNameEndpoint'
+import JSONEndpoint from './fixture/JSONEndpoint'
 import ForwardEndpoint from './fixture/ForwardEndpoint'
 import { NextApiRequest } from 'next'
 import BufferedEndpoint from './fixture/BufferedEndpoint'
+import RedirectEndpoint from './fixture/RedirectEndpoint'
 
 describe('testing response', () => {
     it('should be able to parse simple JSON', () => {
         const req = new NextApiRequestBuilder().build()
         const res = ResponseMock<{ name: string }>()
 
-        getNameEndpoint(req, res)
+        JSONEndpoint(req, res)
 
         expect(res.getStatusCode()).toEqual(200)
         expect(res.getBodyJson()).toStrictEqual({ name: 'John Doe' })
@@ -155,5 +156,17 @@ describe('testing response', () => {
                 )
             )
         })
+    })
+
+    it('should redirect response', () => {
+        const req = new NextApiRequestBuilder().build()
+        const res = ResponseMock()
+
+        RedirectEndpoint(req, res)
+
+        expect(res.getStatusCode()).toEqual(307)
+
+        expect(res.isRedirect()).toEqual(true)
+        expect(res.redirectLocation()).toEqual('/path/home')
     })
 })

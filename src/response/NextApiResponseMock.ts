@@ -9,7 +9,12 @@ import { sendData, sendJson } from './NextApiTransformer'
 const mockBodyResponseHandling = <T>(apiRes: NextApiResponseMock<T>) => {
     let body: Buffer
 
-    apiRes.end = ((data: any) => {
+    const originalEnd = apiRes.end
+    apiRes.end = ((...rest: any[]) => {
+        originalEnd.apply(apiRes, rest as any)
+
+        const [data] = rest
+
         if (data instanceof Buffer) {
             body = Buffer.from(data)
             return
@@ -17,6 +22,11 @@ const mockBodyResponseHandling = <T>(apiRes: NextApiResponseMock<T>) => {
 
         if (typeof data === 'string') {
             body = Buffer.from(data)
+            return
+        }
+
+        if (data === undefined || data === null) {
+            body = Buffer.alloc(0)
             return
         }
 
@@ -41,10 +51,23 @@ const mockBodyResponseHandling = <T>(apiRes: NextApiResponseMock<T>) => {
         return apiRes.getBodyBuffer().length
     }
 
+    apiRes.getStatusCode = (): number => {
+        return apiRes.statusCode
+    }
+
+    apiRes.isRedirect = (): boolean => {
+        return !!apiRes.redirectUrl
+    }
+
+    apiRes.redirectLocation = () => {
+        return apiRes.redirectUrl
+    }
+
     return apiRes
 }
 
-export type NextApiResponseMock<T> = NextApiResponse<T> & {
+export type NextApiResponseMock<T> = NextApiResponse & {
+    redirectUrl: string
     getBodyJson: () => T
     getBodyBuffer: () => Buffer
     getBodyString: () => string
@@ -64,8 +87,15 @@ export const ResponseMock = <T = any>(): NextApiResponseMock<T> => {
     apiRes.status = (statusCode) => sendStatusCode(apiRes, statusCode)
     apiRes.send = (data) => sendData(apiRes, data)
     apiRes.json = (data) => sendJson(apiRes, data)
-    apiRes.redirect = (statusOrUrl: number | string, url?: string) =>
-        redirect(apiRes, statusOrUrl, url)
+    apiRes.redirect = (statusOrUrl: number | string, url?: string) => {
+        if (typeof statusOrUrl === 'string') {
+            apiRes.redirectUrl = statusOrUrl
+        } else if (typeof url === 'string') {
+            apiRes.redirectUrl = url
+        }
+
+        return redirect(apiRes, statusOrUrl, url)
+    }
 
     apiRes.setPreviewData = () => {
         return apiRes
@@ -78,18 +108,6 @@ export const ResponseMock = <T = any>(): NextApiResponseMock<T> => {
     }
 
     apiRes = mockBodyResponseHandling(apiRes)
-
-    apiRes.getStatusCode = (): number => {
-        return apiRes.statusCode
-    }
-
-    apiRes.isRedirect = (): boolean => {
-        return apiRes.getHeader('Location') !== undefined
-    }
-
-    apiRes.redirectLocation = () => {
-        return apiRes.getHeader('Location')
-    }
 
     return apiRes
 }
