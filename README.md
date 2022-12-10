@@ -1,7 +1,16 @@
-# Next Testing
+# ✨ NextJS Testing Framework ✨
+
+![npm (tag)](https://img.shields.io/npm/v/@next-testing/api/latest)
+![NPM](https://img.shields.io/npm/l/@next-testing/api)
+![npm](https://img.shields.io/npm/dt/@next-testing/api)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=coverage)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
+
 
 Simplifying the struggle of mocking and reimplementing NextAPIRequests and NextAPIResponses
-in order to test and validate NextJS serverless functions
+in order to test and validate NextJS serverless functions.
 
 # Installation
 
