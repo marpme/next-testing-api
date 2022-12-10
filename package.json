@@ -6,6 +6,12 @@
     "bugs": {
         "url": "https://github.com/marpme/next-test-suite/issues"
     },
+    "files": [
+        "package.json",
+        "package-lock.json",
+        "tsconfig.json",
+        "dist/**"
+    ],
     "description": "Next API Test Suite - Simplifying the mocking and asserting of Next API Request & Responses",
     "keywords": [
         "nodejs",
