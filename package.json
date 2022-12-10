@@ -36,8 +36,8 @@
         "build": "tsc --project tsconfig.build.json",
         "test": "vitest",
         "coverage": "vitest run --coverage",
-        "format:check": "prettier --check src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.js",
-        "format:write": "prettier --write src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.js",
+        "format:check": "prettier --check src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.ts",
+        "format:write": "prettier --write src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.ts",
         "lint": "eslint src/ tests/",
         "prepare": "husky install"
     },
