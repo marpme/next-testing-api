@@ -16,7 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-  publish-npm:
+  publish-api:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -27,5 +27,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish --access public
+        working-directory: packages/api/
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
