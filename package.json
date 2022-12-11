@@ -1,56 +1,34 @@
 {
-    "name": "@next-testing/api",
-    "version": "0.0.6",
-    "repository": "https://github.com/marpme/next-test-suite",
-    "homepage": "https://github.com/marpme/next-test-suite",
-    "bugs": {
-        "url": "https://github.com/marpme/next-test-suite/issues"
-    },
-    "files": [
-        "package.json",
-        "package-lock.json",
-        "tsconfig.json",
-        "dist/**"
-    ],
-    "description": "Next API Test Suite - Simplifying the mocking and asserting of Next API Request & Responses",
-    "keywords": [
-        "nodejs",
-        "http",
-        "typescript",
-        "nextjs",
-        "nextapiresponse",
-        "nextapirequest",
-        "nextapi",
-        "testing",
-        "mock",
-        "mocking"
-    ],
+    "name": "root",
     "author": "marpme<7430964+marpme@users.noreply.github.com>",
     "license": "MIT",
-    "main": "dist/index.js",
+    "private": true,
     "engines": {
-        "node": ">=14.6.0"
+        "node": ">=16"
     },
     "scripts": {
         "prepublish": "npm run build",
-        "build": "tsc --project tsconfig.build.json",
-        "test": "vitest",
-        "coverage": "vitest run --coverage",
-        "format:check": "prettier --check src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.ts",
-        "format:write": "prettier --write src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.ts",
-        "lint": "eslint src/ tests/",
+        "build": "lerna run build",
+        "test": "lerna run test",
+        "coverage": "lerna run coverage",
+        "format:check": "prettier --check packages/**",
+        "format:write": "prettier --write packages/**",
+        "lint": "eslint packages/**",
         "prepare": "husky install"
     },
-    "dependencies": {
-        "@next/env": "^13.0.6"
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
     },
+    "workspaces": [
+        "packages/*"
+    ],
     "devDependencies": {
+        "lerna": "^6.1.0",
         "@commitlint/cli": "^17.3.0",
         "@commitlint/config-conventional": "^17.3.0",
-        "@types/node": "^18.11.10",
-        "@typescript-eslint/eslint-plugin": "^5.46.0",
-        "@typescript-eslint/parser": "5.45.0",
-        "@vitest/coverage-c8": "^0.25.6",
         "eslint": "^8.29.0",
         "eslint-import-resolver-typescript": "3.5.2",
         "eslint-plugin-import": "2.26.0",
@@ -58,20 +36,6 @@
         "eslint-plugin-react": "7.31.11",
         "eslint-plugin-react-hooks": "4.6.0",
         "husky": "^8.0.2",
-        "next": "^13.0.6",
-        "prettier": "^2.8.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^4.9.3",
-        "vitest": "^0.25.6"
-    },
-    "peerDependencies": {
-        "next": "^13.0.6"
-    },
-    "prettier": {
-        "trailingComma": "es5",
-        "tabWidth": 4,
-        "semi": false,
-        "singleQuote": true
+        "prettier": "^2.8.1"
     }
 }
