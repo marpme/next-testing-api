@@ -21,12 +21,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish --access public
-        working-directory: packages/api/
+
+      - run: npx lerna version --yes
+
+      - run: npx lerna publish from-git --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "[release] automated release triggered"
+      - name: push change 
+        run: |
+          git push origin main --all
