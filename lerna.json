@@ -1,5 +1,12 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useWorkspaces": true,
-  "version": "0.0.6"
+  "version": "0.0.6",
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "allowBranch": ["main", "convert-to-mono-repo-release"],
+      "message": "chore(release): published automated release"
+    }
+  }
 }
