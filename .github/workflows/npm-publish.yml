@@ -1,8 +1,6 @@
 name: release package
 
-on:
-  release:
-    types: [created]
+on: workflow_dispatch
 
 jobs:
   build:
@@ -34,12 +32,13 @@ jobs:
       - run: npx lerna publish from-git --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-          
+
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "[release] automated release triggered"
+      
       - name: push change 
         run: |
           git push origin main --all
