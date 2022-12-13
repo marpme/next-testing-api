@@ -1,13 +1,13 @@
 {
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "useWorkspaces": true,
-  "version": "0.0.6",
-  "command": {
-    "version": {
-      "conventionalCommits": true,
-      "createRelease": "github",
-      "allowBranch": ["main"],
-      "message": "chore(release): published automated release"
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+    "useWorkspaces": true,
+    "version": "0.0.7",
+    "command": {
+        "version": {
+            "conventionalCommits": true,
+            "createRelease": "github",
+            "allowBranch": ["main"],
+            "message": "chore(release): published automated release"
+        }
     }
-  }
 }
