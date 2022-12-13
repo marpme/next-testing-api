@@ -8,6 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          token: ${{ secrets.RELEASE_TOKEN }}
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
@@ -19,8 +20,8 @@ jobs:
 
       - name: set commit bot
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor}}@users.noreply.github.com"
         
       - name: bump conventional commits
         run: npx lerna version --yes
@@ -31,7 +32,3 @@ jobs:
         run: npx lerna publish from-git --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
-      - name: push change 
-        run: |
-          git push origin main --all
