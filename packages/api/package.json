@@ -1,10 +1,10 @@
 {
     "name": "@next-testing/api",
     "version": "0.0.7",
-    "repository": "https://github.com/marpme/next-test-suite",
-    "homepage": "https://github.com/marpme/next-test-suite",
+    "repository": "https://github.com/marpme/next-testing",
+    "homepage": "https://github.com/marpme/next-testing",
     "bugs": {
-        "url": "https://github.com/marpme/next-test-suite/issues"
+        "url": "https://github.com/marpme/next-testing/issues"
     },
     "files": [
         "package.json",
