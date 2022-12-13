@@ -28,10 +28,12 @@ jobs:
       - run: npm ci
 
       - run: npx lerna version --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npx lerna publish from-git --yes
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
 
       - name: Commit files
         run: |
