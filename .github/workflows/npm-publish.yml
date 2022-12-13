@@ -25,12 +25,12 @@ jobs:
       - name: bump conventional commits
         run: npx lerna version --yes
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
       - name: release new version to npmjs
         run: npx lerna publish from-git --yes
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: push change 
         run: |
