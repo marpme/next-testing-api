@@ -1,0 +1,66 @@
+{
+    "name": "@next-testing/cli",
+    "version": "0.0.7",
+    "type": "module",
+    "repository": "https://github.com/marpme/next-testing",
+    "homepage": "https://github.com/marpme/next-testing",
+    "bugs": {
+        "url": "https://github.com/marpme/next-testing/issues"
+    },
+    "files": [
+        "package.json",
+        "package-lock.json",
+        "tsconfig.json",
+        "dist/**"
+    ],
+    "description": "Configuring NextJS Test Suite with automatic integration",
+    "keywords": [
+        "nodejs",
+        "http",
+        "typescript",
+        "nextjs",
+        "nextapiresponse",
+        "nextapirequest",
+        "nextapi",
+        "testing",
+        "mock",
+        "mocking"
+    ],
+    "author": "marpme<7430964+marpme@users.noreply.github.com>",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "bin": {
+        "nxtest": "bin/index.mjs"
+    },
+    "engines": {
+        "node": ">=14.6.0"
+    },
+    "scripts": {
+        "prepublish": "npm run build",
+        "build": "rimraf dist/ && tsc --project tsconfig.build.json",
+        "test": "vitest",
+        "coverage": "vitest run --coverage",
+        "format:check": "prettier --check src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.ts",
+        "format:write": "prettier --write src/ tests/ package.json tsconfig.json tsconfig.build.json vitest.config.ts",
+        "lint": "eslint src/ tests/"
+    },
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^14.4.3",
+        "@vitest/coverage-c8": "^0.25.6",
+        "cac": "^6.7.14",
+        "execa": "^6.1.0",
+        "happy-dom": "^8.1.0",
+        "jsdom": "^20.0.3",
+        "picocolors": "^1.0.0",
+        "vitest": "^0.25.8"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.10",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.9.3"
+    }
+}
