@@ -127,3 +127,30 @@ it('Mock Request and Response with headers', async () => {
   })
 })
 ```
+
+### Mocking Request with route parameters
+
+If your handler depends on some parameters found in the path, eg. it's defined
+in `pages/api/[foo]/echo`, then you can specify it with `setQuery()`.
+
+```ts
+import EchoHandler from './pages/api/[foo]/echo'
+import { NextApiRequestBuilder, ResponseMock } from '@next-testing/api'
+
+it('Mock Request and Response with route parameters', async () => {
+  const req = new NextApiRequestBuilder()
+          .setMethod('GET')
+          .setQuery({
+            foo: 'hello'
+          })
+          .build()
+  const res = ResponseMock()
+
+  EchoHandler(req, res)
+
+  expect(res.getStatusCode()).toEqual(200)
+  expect(res.getBodyJson()).toStrictEqual({
+      foo: 'hello',
+  })
+})
+```

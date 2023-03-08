@@ -40,6 +40,11 @@ export class NextApiRequestBuilder {
         return this
     }
 
+    setQuery(query: Record<string, string | string[]>): NextApiRequestBuilder {
+        this.req.query = query
+        return this
+    }
+
     build(): NextApiRequest {
         return this.req
     }
