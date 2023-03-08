@@ -4,11 +4,12 @@ import {
     NextApiResponseMock,
     ResponseMock,
 } from '../src'
+import { NextApiRequest } from 'next'
 import JSONEndpoint from './fixture/JSONEndpoint'
 import ForwardEndpoint from './fixture/ForwardEndpoint'
-import { NextApiRequest } from 'next'
 import BufferedEndpoint from './fixture/BufferedEndpoint'
 import RedirectEndpoint from './fixture/RedirectEndpoint'
+import EchoEndpoint from './fixture/EchoEndpoint'
 
 describe('testing response', () => {
     it('should be able to parse simple JSON', () => {
@@ -155,6 +156,27 @@ describe('testing response', () => {
                     })
                 )
             )
+        })
+    })
+
+    describe('echo endpoint', () => {
+        it('should read parameters in the request query and url', () => {
+            const req = new NextApiRequestBuilder()
+                .setMethod('GET')
+                .setQuery({
+                    foo: 'hello',
+                })
+                .setUrl('http://localhost/api/hello/echo')
+                .build()
+            const res = ResponseMock()
+
+            EchoEndpoint(req, res)
+
+            expect(res.getStatusCode()).toEqual(200)
+            expect(res.getBodyJson()).toStrictEqual({
+                foo: 'hello',
+                url: 'http://localhost/api/hello/echo',
+            })
         })
     })
 
