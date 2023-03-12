@@ -1,4 +1,4 @@
-name: auto-merge dependencies upgrades
+name: auto-merge
 
 on:
   pull_request:
