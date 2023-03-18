@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="logo" width="400' src="./logo.svg">
+<img alt="logo" width="300" src="./logo.svg">
 
 <em>Simplifying the struggle of mocking and reimplementing NextAPIRequests and NextAPIResponses
 in order to test and validate NextJS serverless functions.</em>
