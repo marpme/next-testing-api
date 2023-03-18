@@ -1,8 +1,9 @@
 <div align="center">
-<img alt="logo" src="./logo.svg">
-</div>
+<img alt="logo" width="400' src="./logo.svg">
 
----
+<em>Simplifying the struggle of mocking and reimplementing NextAPIRequests and NextAPIResponses
+in order to test and validate NextJS serverless functions.</em>
+
 
 ![npm (tag)](https://img.shields.io/npm/v/@next-testing/api/latest)
 ![NPM](https://img.shields.io/npm/l/@next-testing/api)
@@ -12,9 +13,7 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=coverage)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
 
-
-Simplifying the struggle of mocking and reimplementing NextAPIRequests and NextAPIResponses
-in order to test and validate NextJS serverless functions.
+</div>
 
 # Installation
 
