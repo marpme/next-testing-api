@@ -10,6 +10,7 @@ import ForwardEndpoint from './fixture/ForwardEndpoint'
 import BufferedEndpoint from './fixture/BufferedEndpoint'
 import RedirectEndpoint from './fixture/RedirectEndpoint'
 import EchoEndpoint from './fixture/EchoEndpoint'
+import EmptyEndpoint from './fixture/EmptyEndpoint'
 
 describe('testing response', () => {
     it('should be able to parse simple JSON', () => {
@@ -190,5 +191,15 @@ describe('testing response', () => {
 
         expect(res.isRedirect()).toEqual(true)
         expect(res.redirectLocation()).toEqual('/path/home')
+    })
+
+    it('should accept empty response with no body', () => {
+        const req = new NextApiRequestBuilder().build()
+        const res = ResponseMock()
+
+        EmptyEndpoint(req, res)
+
+        expect(res.getStatusCode()).toEqual(204)
+        expect(res.getBodyBuffer()).toEqual(Buffer.alloc(0))
     })
 })
