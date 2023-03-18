@@ -1,4 +1,8 @@
-# ✨ NextJS Testing Framework ✨
+<div align="center">
+<img alt="logo" src="./logo.svg">
+</div>
+
+---
 
 ![npm (tag)](https://img.shields.io/npm/v/@next-testing/api/latest)
 ![NPM](https://img.shields.io/npm/l/@next-testing/api)
