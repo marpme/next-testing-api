@@ -23,9 +23,11 @@ jobs:
         with:
           node-version: ${{ matrix.nodeVersion }}
           cache: "npm"
-      - run: npm install --prefer-offline
-      - run: npm run coverage
-        if: ${{ matrix.os == 'ubuntu-latest' }}
+      - name: Install dependencies
+        run: npm install --prefer-offline
+      - name: Run tests and generate coverage report
+        run: npm run coverage
+      - if: ${{ matrix.os == 'ubuntu-latest' }}
         name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
