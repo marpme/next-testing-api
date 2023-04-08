@@ -10,6 +10,9 @@ on:
 
 jobs:
   testing:
+    strategy:
+      matrix:
+        nodeVersion: [ 16, 18, 19 ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,11 +20,14 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.nodeVersion }}
           cache: "npm"
-      - run: npm ci
-      - run: npm run coverage
-      - name: SonarCloud Scan
+      - name: Install dependencies
+        run: npm install --prefer-offline
+      - name: Run tests and generate coverage report
+        run: npm run coverage
+      - if: ${{ matrix.nodeVersion == '18' }}
+        name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
