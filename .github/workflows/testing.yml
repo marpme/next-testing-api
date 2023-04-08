@@ -27,7 +27,7 @@ jobs:
         run: npm install --prefer-offline
       - name: Run tests and generate coverage report
         run: npm run coverage
-      - if: ${{ matrix.os == 'ubuntu-latest' }}
+      - if: ${{ matrix.os == 'ubuntu-latest' && matrix.nodeVersion == '18' }}
         name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
