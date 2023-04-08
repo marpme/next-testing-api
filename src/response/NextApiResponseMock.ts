@@ -1,3 +1,5 @@
+import 'next/dist/server/node-polyfill-fetch'
+
 import { NextApiResponse } from 'next'
 import { sendStatusCode, redirect } from 'next/dist/server/api-utils'
 
