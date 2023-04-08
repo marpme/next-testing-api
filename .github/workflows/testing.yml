@@ -10,18 +10,23 @@ on:
 
 jobs:
   testing:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        nodeVersion: [ 16, 18, 19 ]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.nodeVersion }}
           cache: "npm"
-      - run: npm ci
+      - run: npm install --prefer-offline
       - run: npm run coverage
-      - name: SonarCloud Scan
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
