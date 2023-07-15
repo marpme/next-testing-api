@@ -7,5 +7,21 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+    assignees:
+      - "marpme"
+    commit-message:
+      prefix: "chore(deps): "
+      prefix-development: "chore(dev-deps): "
     schedule:
       interval: "daily"
+    groups:
+      dependencies:
+        patterns:
+          - "*next*"
+      dev-dependencies:
+        patterns:
+          - "react*"
+          - "*vitest*"
+          - "@typescript-eslint/*"
+          - "@commitlint/*"
+
