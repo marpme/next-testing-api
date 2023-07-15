@@ -30,7 +30,7 @@
     "license": "MIT",
     "main": "dist/index.js",
     "engines": {
-        "node": ">=14.6.0"
+        "node": ">=16"
     },
     "scripts": {
         "prepublish": "npm run build",
