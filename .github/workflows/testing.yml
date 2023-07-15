@@ -12,7 +12,7 @@ jobs:
   testing:
     strategy:
       matrix:
-        nodeVersion: [ 16, 18, 19 ]
+        nodeVersion: [ 16, 18, 20 ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
