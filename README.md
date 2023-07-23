@@ -8,9 +8,9 @@ in order to test and validate NextJS serverless functions.</em>
 [![NPM](https://img.shields.io/npm/l/@next-testing/api)](https://www.npmjs.com/package/@next-testing/api)
 [![npm](https://img.shields.io/npm/dt/@next-testing/api)](https://www.npmjs.com/package/@next-testing/api)
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=marpme_next-testing&metric=coverage)](https://sonarcloud.io/summary/new_code?id=marpme_next-testing)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=next-testing_api&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=next-testing_api)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=next-testing_api&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=next-testing_api)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=next-testing_api&metric=coverage)](https://sonarcloud.io/summary/new_code?id=next-testing_api)
 
 </div>
 
