@@ -15,32 +15,32 @@ export class NextApiRequestBuilder {
         )
     }
 
-    setBody(body: Record<string, any> | any[]): NextApiRequestBuilder {
+    setBody(body: Record<string, any> | any[]): this {
         this.req.body = body
         return this
     }
 
-    setCookies(value: Partial<{ [p: string]: string }>): NextApiRequestBuilder {
+    setCookies(value: Partial<{ [p: string]: string }>): this {
         this.req.cookies = { ...this.req.cookies, ...value }
         return this
     }
 
-    setHeaders(value: IncomingHttpHeaders): NextApiRequestBuilder {
+    setHeaders(value: IncomingHttpHeaders): this {
         this.req.headers = { ...this.req.headers, ...value }
         return this
     }
 
-    setMethod(value: string): NextApiRequestBuilder {
+    setMethod(value: string): this {
         this.req.method = value
         return this
     }
 
-    setUrl(value: string): NextApiRequestBuilder {
+    setUrl(value: string): this {
         this.req.url = value
         return this
     }
 
-    setQuery(query: Record<string, string | string[]>): NextApiRequestBuilder {
+    setQuery(query: Record<string, string | string[]>): this {
         this.req.query = query
         return this
     }
