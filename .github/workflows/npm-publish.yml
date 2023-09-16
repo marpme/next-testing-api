@@ -2,13 +2,17 @@ name: release package
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   release-packages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.RELEASE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
@@ -26,7 +30,7 @@ jobs:
       - name: bump conventional commits
         run: npx lerna version --yes
         env:
-          GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: release new version to npmjs
         run: npx lerna publish from-git --yes
