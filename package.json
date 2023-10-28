@@ -30,7 +30,7 @@
     "license": "MIT",
     "main": "dist/index.js",
     "engines": {
-        "node": ">=16"
+        "node": ">=18"
     },
     "scripts": {
         "prepublish": "npm run build",
@@ -42,10 +42,10 @@
         "lint": "eslint src/ tests/"
     },
     "dependencies": {
-        "@next/env": "^13.0.6"
+        "@next/env": "^14.0.0"
     },
     "peerDependencies": {
-        "next": "^13.0.6"
+        "next": "^14.0.0"
     },
     "devDependencies": {
         "@commitlint/cli": "^18.2.0",
@@ -62,7 +62,7 @@
         "eslint-plugin-react-hooks": "4.6.0",
         "husky": "^8.0.2",
         "lerna": "^7.1.3",
-        "next": "^13.0.6",
+        "next": "^14.0.0",
         "prettier": "^3.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
